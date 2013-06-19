@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nama:</b>
+  <%= @pasar.nama %>
+</p>
+
+<p>
+  <b>Lokasi:</b>
+  <%= @pasar.lokasi %>
+</p>
+
+<h2>Komoditi</h2>
+<%= render @pasar.komoditis %>
+
+<h2>Add a komoditi:</h2>
+<%= render "komoditis/form" %>
+
+<%= link_to 'Edit', edit_pasar_path(@pasar) %> |
+<%= link_to 'Back', pasars_path %>

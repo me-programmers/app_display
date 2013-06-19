@@ -1,3 +1,91 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+.root {
+  width: 100%;
+  border:  thin solid;
+  padding: 10px;
+  font-size: 140%;
+  background: url(/assets/bg-jagung.jpg) no-repeat;
+  background-size: 100% auto;
+}
+.content1 {
+  position: relative;
+  font-size: 80%;
+  padding: 2%;
+  height: 500px;  
+}
+.item {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  margin:   0% 0% 1% 0%;  
+  background-color:rgba(145,232,66,0.5); 
+}
+.nomor {
+  float: left;
+  width: 8%;
+  margin:   1% 1% 0% 1%;
+  
+}
+.nama {
+  float: left;
+  width: 68%;
+  margin:   1% 1% 0% 1%;
+  
+}
+.harga {
+  float: left;
+  width: 16%;
+  margin:   1% 1% 0% 1%;
+  
+}
+.header1 {
+  font-size: 140%; 
+  margin: 0 0 1% 0;   
+}
+.header2 {
+  font-size: 110%; 
+  margin: 0 0 1% 0; 
+  text-transform: uppercase; 
+  text-shadow: black 2px 2px 3px;
+}
+
+.navbar-inner {
+  min-height: 0px;
+  overflow: hidden;
+}
+
+/* main */
+
+#boxWrapper {
+    width:100%;
+    height:1200px;
+    visibility:hidden;
+}
+
+#bungkus {
+    width:100%;
+    height:1200px;
+    background-color:transparent;
+}
+
+#bungkus div {
+    width:100%;
+    height:80px;
+    background-color:purple;
+    margin:5px;
+    display:inline-block;
+    font-size:40px;
+    line-height:80px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}

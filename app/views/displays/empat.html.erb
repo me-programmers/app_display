@@ -1,0 +1,20 @@
+<h1 id="header">3D with transformPerspective</h1>
+<div id="content">
+	<ul>
+    	<li>Get</li>
+       <li>Ready</li>
+       <li>For 3D</li>
+       <li>AWESOMENESS</li>
+    </ul>    
+</div>
+
+<script>
+  
+  $(document).ready(function(){
+
+  	TweenLite.set("ul", {perspective:'800px'});
+
+	TweenMax.staggerFrom("li", 2, { rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.4)
+
+  });
+  </script>

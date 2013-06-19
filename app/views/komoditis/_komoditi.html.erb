@@ -1,0 +1,15 @@
+<p>
+    <b>Nama Komoditi:</b>
+    <%= komoditi.nama_komoditi %>
+  </p>
+ 
+  <p>
+    <b>Harga:</b>
+    <%= komoditi.harga %>
+  </p>
+
+  <p>
+  <%= link_to 'Destroy Komoditi', [komoditi.pasar, komoditi],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>

@@ -1,0 +1,221 @@
+<div id="wrapper">
+  <div id="banner">
+    <div class="slide" id="slide2">
+      <h4>FOR</h4>
+    </div>
+    <div class="slide" id="slide1">
+      <h1>CREATE</h1>
+      <div id="stunningWrap"><h2 id="stunning">STUNNING</h2></div>
+      <h3>ANIMATIONS</h3>
+    </div>
+    <div class="slide" id="slide3">
+      <div id="deviceHead">Desktop</div>
+      <img src="http://www.greensock.com/_img/codepen/allDevicesBanner/desktop.png" id="desktop">
+      <img src="http://www.greensock.com/_img/codepen/allDevicesBanner/laptop.png" id="laptop">
+      <div id="mobile">
+        <div id="tablet">
+          <div id="nestedAnimation">
+            <div id="tablet_end_screen"></div>
+            <img src="http://www.greensock.com/_img/codepen/allDevicesBanner/logoman.png" id="logoman">
+            <a href="http://www.greensock.com/gsap-js/" target="_blank"><div id="learnMore" class="gradient">learn more</div></a>
+            <div id="replay"><img src="http://www.greensock.com/_img/codepen/allDevicesBanner/replay.png"></div>
+          </div>
+        </div>
+        <div id="iphone">
+          <img src="http://www.greensock.com/_img/codepen/allDevicesBanner/iphone.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="slider"></div>
+
+<script>
+  
+  $(document).ready(function(){
+
+    TweenLite.ticker.fps(30);
+
+    /*  Just an example to show you the type of animation that you can create on devices that don't support Flash. 
+        Give it a spin on your iOS device. We think you will like the results.
+
+        This banner uses a handful CSS properties that require a modern browser. We recommend Google Chrome.
+        Animation powered by the GreenSock Animation Platform (GSAP)
+        Learn more: http://www.greensock.com/gsap-js/
+    */
+
+    var $banner = $("#banner"),
+        $slide1 = $("#slide1"),
+        $create = $("h1"),
+        $stunning = $("h2"),
+        $animations = $("h3"),
+        $for = $("h4"),
+        $deviceHead = $("#deviceHead"),
+        $tablet = $("#tablet"),
+        $desktop = $("#desktop"),
+        $laptop = $("#laptop"),
+        $mobile = $("#mobile"),  
+        $iphone = $("#iphone"),
+        $logoman = $("#logoman"),
+        $learnMore = $("#learnMore"),
+        $replay = $("#replay"),
+        $slider = $("#slider"),
+        timeline;
+
+    //CSSPlugin makes it much easy to set rotation, autoAlpha (visibility and opacity combined), transformPerpsective and other css props that would otherwise require vendor-prefixing.
+    function initCSS() {
+      TweenLite.set($animations, {rotation:90});
+      TweenLite.set($for, {autoAlpha:0});
+      TweenLite.set($deviceHead, {transformPerspective:600});
+      TweenLite.set($tablet, {scale:0.34, y:18, x:-38});
+      TweenLite.set($slider, {autoAlpha:0});
+    }
+
+    /*  The following 3 functions are responsible for creating (and returning) timelines for each section of the entire banner. 
+        Creating individual timelines for each section allows you to
+          * keep your code clean, modular and manageable
+          * place the timeline wherever you like in the main timeline and easily move it around whenever you like
+          * affect the timeScale() (playback speed) of a particular section without affecting the banner as a whole
+          * reuse animations multiple times
+    */
+
+    function getIntroTextTimeline() {
+      var tl = new TimelineLite();
+      tl.from($create, 0.4, {scale:0.2, autoAlpha:0, ease:Back.easeOut})
+      .from($stunning, 0.2, {top:-60}, "+=0.1") //added 0.1 seconds after current end of timeline
+      .from($animations, 0.4, {top:400, ease:Power2.easeIn})
+      .to($slide1, 0.3, {rotation:-90, left:-125, top:26}, "rotateOut") //creates a label called "rotateOut" at current end of timeline and places tween there
+      .to($stunning, 0.2, {left:-300}, "rotateOut") //adds tween at "rotateOut" label 
+      .to($animations, 0.2, {left:30}, "+=0.2")
+      .to($animations, 0.2, {left:122}, "for") //label marks the start of the reveal of the word "for"
+      .to($for, 0.2, {autoAlpha:1}, "for")
+      .add("introOut", "+=0.7")
+      .to($for, 0.2, {autoAlpha:0, left:300}, "introOut")
+      .to($animations, 0.2, {autoAlpha:0, top:"-=300px"}, "introOut")
+      return tl;
+    }
+
+    function getDevicesTimeline() {
+      var tl = new TimelineLite();
+      tl.from($deviceHead, 0.5, {autoAlpha:0})
+      .from($desktop, 0.5, {rotation:-50, transformOrigin:"50% 500px"}) //rotates around a point 500px below the element
+      .add("desktopOut", "+=0.5")
+      .to($deviceHead, 0.25, {rotationX:-90, transformOrigin:"50% 100%"}, "desktopOut") //rotates around bottom edge of element
+      .to($desktop, 0.5, {rotation:50, transformOrigin:"50% 500px"}, "desktopOut")
+      .set($deviceHead, {text:"Laptop"}, "desktopOut+=0.25") //TextPlugin changes the text of a DOM elment. Allows us to re-use the same element multiple times
+      .from($laptop, 0.5, {rotation:-50, transformOrigin:"50% 500px"}, "desktopOut")
+      .fromTo($deviceHead, 0.25, {rotationX:90}, {rotationX:0, transformOrigin:"50% 100%", immediateRender:false}, "desktopOut+=0.25")
+      .add("laptopOut", "+=0.5")
+      .to($deviceHead, 0.25, {rotationX:-90, transformOrigin:"50% 100%"}, "laptopOut")
+      .to($laptop, 0.5, {rotation:50, transformOrigin:"50% 500px"}, "laptopOut")
+      .set($deviceHead, {text:"and Mobile"}, "laptopOut+=0.25")
+      .from("#mobile", 0.5, {rotation:-50, transformOrigin:"50% 500px"}, "laptopOut")
+      .fromTo($deviceHead, 0.25, {rotationX:90}, {rotationX:0, transformOrigin:"50% 100%", immediateRender:false}, "laptopOut+=0.25")
+      return tl;
+    }
+
+    function getTabletAnimation() {
+      var tl = new TimelineLite();
+      tl.fromTo("#tablet_end_screen", 0.6, { clip:"rect(125px 300px 125px 0px)"}, { clip:"rect(0px 300px 250px 0px)"}, "revealTablet")
+      .to($tablet, 0.4, {backgroundColor:"black"}, "revealTablet")
+      .add("tabletGrow", "-=0.200")
+      .to($tablet, 0.5, {scale:1, x:0, y:-10, ease:Back.easeOut}, "tabletGrow")
+      .to($iphone, 0.4, {scale:0.2}, "tabletGrow")
+      .add("logoman", "-=0.2")
+      .set($logoman, {autoAlpha:1}, "logoman")
+      .from($logoman, 0.3, {left:20, scale:2, ease:Back.easeOut}, "logoman")
+      .from($learnMore, 0.2, {autoAlpha:0, scale:0.1, ease:Back.easeOut})
+      .add(TweenMax.to($learnMore, 0.5, {boxShadow:"0px 0px 20px 2px #91f600", repeat:3, yoyo:true}), "+=0.8")
+      .from("#replay", 0.4, {autoAlpha:0, rotation:"360_ccw"}, "-=1");
+      return tl;
+    }
+
+    /*  This methods glues all 3 section timelines together.
+        You can insert each timeline wherever you choose allowing our sub-timelines to overlap or have some "dead time" between them.
+        By placing labels in the timeline via add("someLabel", somePosition) it makes it very easy for us to mark the insertion points and navigate to them
+    */
+        
+    function createMasterTimeline() {
+      timeline = new TimelineLite({onUpdate:updateSlider, onComplete:showSlider});
+      timeline.set($banner, {autoAlpha:1})
+        .add(getIntroTextTimeline(), 0.3) //add the first animation at a time of 0.3 seconds
+        .add("devices", "-=0.1") //add "devices" label just 0.1 seconds before the end of the previous animation for a bit of overlap
+        .add(getDevicesTimeline(), "devices") //add the second animation and the "devices" label
+        .add("tabletAnimation", "+=0.4")
+        .add(getTabletAnimation(), "tabletAnimation"); 
+      timeline.timeScale(1) // put a 4 in there, I dare you ;)
+    }  
+
+    // *** config buttons *** 
+
+    $learnMore.mouseenter(function(e){
+      TweenMax.fromTo($learnMore, 0.6, {boxShadow:"0px 0px 0px 0px green"}, {boxShadow:"0px 0px 20px 2px #91f600", repeat:-1, yoyo:true});
+    });
+
+    $learnMore.mouseleave(function(e){
+      TweenMax.to($learnMore, 0.2, {boxShadow:"0px 0px 0px 0px yellow"});
+    });
+
+    $replay.mouseenter(function(e){
+      TweenLite.to($replay, 0.5, {rotation:"+=360", alpha:1});
+    })
+      
+    $replay.mouseleave(function(e){
+      TweenLite.to($replay, 0.5, {alpha:0.6});
+    })
+
+    $replay.click(function(){
+      timeline.restart();
+    });
+
+    // *** config jQueryUI Slider ***
+
+    $slider.slider({
+      range: false,
+      min: 0,
+      max: 100,
+      step:0.1,
+      slide: function ( event, ui ) {
+        timeline.pause();
+        //adjust the timeline's progress() based on slider value
+        timeline.progress( ui.value/100 );
+        }
+    }); 
+
+    //this function is called by timeline's onUpdate callback
+    function updateSlider() {
+      $slider.slider("value", timeline.progress() *100);
+    }     
+
+    //this function is called by timeline's onComplete callback
+    function showSlider(){
+      TweenLite.to($slider, 0.5, {autoAlpha:1});
+    }
+
+    //get this party started
+    initCSS();
+    createMasterTimeline();
+
+
+
+    /* file size notes
+    Some folks have asked about file size of this banner. It wasn't built with optimization in mind so the images are
+    bigger than they should be. TweenMax.min.js is used for convenience but the animation could be built with only TweenLite, TimelineLite and CSSPlugin for a 7kb savings. 
+
+    Modernizr and jQuery UI are loaded but not at all required for the animation.
+
+    Here's a breakdown:
+
+    TweenMax.min.js      28kb gzipped (could have gotten down to 22kb with only loading the tools I needed)
+    TextPlugin.min.js     1kb
+    Images               60kb (not optimized)
+    Asap font            26kb (could have optimized by building a custom font set with only the characters I needed)
+    jQuery               78kb gzipped (non-essential) could use a super small selector like Sizzle
+
+    So really the GSAP "overhead" is really only 28kb. 
+    When networks make wide-spread use of cdns the benefits of caching will kick in and the size will come close to a non-issue.
+    Sure, if you are stuck with a 50kb limit, 28kb is HUGE, but we believe that in a non-Flash world, that crippling limit will have to be revised. 
+    */
+
+  });
+  </script>

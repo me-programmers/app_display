@@ -1,0 +1,13 @@
+<%= form_for([@pasar, @pasar.komoditis.build]) do |f| %>
+  <div class="field">
+    <%= f.label :nama_komoditi %><br />
+    <%= f.text_field :nama_komoditi %>
+  </div>
+  <div class="field">
+    <%= f.label :harga %><br />
+    <%= f.text_area :harga %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613232123) do
+ActiveRecord::Schema.define(:version => 20130615151317) do
+
+  create_table "komoditis", :force => true do |t|
+    t.string   "nama_komoditi"
+    t.decimal  "harga"
+    t.integer  "pasar_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "komoditis", ["pasar_id"], :name => "index_komoditis_on_pasar_id"
+
+  create_table "pasars", :force => true do |t|
+    t.string   "nama"
+    t.string   "lokasi"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
