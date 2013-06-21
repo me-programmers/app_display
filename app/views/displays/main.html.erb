@@ -1,10 +1,11 @@
 <div id="boxWrapper">
   <div id="bungkus">
     <% @pasars.each do |pasar| %>
-      <div><%= pasar.nama %></div>
+      <div id="namapasar<%= pasar.id %>" class="nama-pasar"><%= pasar.nama %>
         <% pasar.komoditis.each do |komoditi| %>
-          <div>- <%= komoditi.nama_komoditi %> | <%= number_with_precision(komoditi.harga, :delimiter => ".", :precision => 0) %></div>    
+          <div id="itemkomoditi" class="item-komoditi">- <%= komoditi.nama_komoditi %> | <%= number_with_precision(komoditi.harga, :delimiter => ".", :precision => 0) %></div>    
         <% end %>
+      </div>
     <% end %>
   </div>
 </div>
@@ -12,14 +13,48 @@
 <script>
   
   $(document).ready(function(){
-	//we hide the wrapper initially and then show it once the page loads and we're ready to animate (to prevent the user from seeing a flash of content on the screen). We use jQuery for simplicity, but it'd be just as easy to alter the element's style.visibility directly or use a TweenLite.set() call. In fact, we don't need jQuery at all for this page - we just wanted to demonstrate how well GSAP and jQuery can work together.
-	$("#boxWrapper").css({visibility:"visible"});
-  TweenLite.set($("#bungkus"), {perspective:'1200px'});
+	// $("#center div").length
+  // $("#center > div").length
+    //document.write($("#bungkus > .nama-pasar").length); //=> return 2
+    //document.write($("#bungkus .item-komoditi ").length); //=> return 4
+    //document.write($("#namapasar1 .item-komoditi ").length); //=> return 3
+    var slide_length = $("#bungkus > .nama-pasar").length,        
+        i=1,
+        flag=myFunction("satu", "mulai"),
+        tl = new TimelineMax({repeat:1, repeatDelay:1, onComplete:myFunction, onCompleteParams:["satu", "done"]});
 
-	var tl = new TimelineLite(),
-	    letters = $("#bungkus div");
-	tl.staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3);
-	  //.staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
-  
+        TweenLite.set($("#bungkus"), {perspective:'1200px'});
+        //$("#boxWrapper").css({visibility:"visible"});
+
+    for (i = 1; i < slide_length; i++) 
+      {
+      if (flag=="mulai") 
+        {
+        //flag=myFunction("dua", "stop");      	
+        //$("#namapasar" + i).css({visibility:"visible"});        
+        var letters = $("#namapasar" + i + " div");
+      	tl.staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3)
+      	  .staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
+        };
+        //tl.duration(1);
+      } 
+
+    function myFunction(a, b)
+      {
+          
+          //alert(flag + "-" + a + "-" + b + "-" + i);
+          if (a=="satu") {            
+            $("#boxWrapper").css({visibility:"visible"});
+            $("#namapasar" + i).css({visibility:"visible"}); 
+            //$("#namapasar" + i).css({visibility:"hidden"}); 
+            //a="dua";
+            z="mulai";
+          } else {
+            z="stop";
+            //$("#namapasar" + (i-1).css({visibility:"hidden"});  
+          }
+          return z;          
+      }
+
   });
   </script>

@@ -9,6 +9,7 @@ HargaPasar::Application.routes.draw do
   get "displays/empat"
   get "displays/lima"
   get "displays/main"
+  get "displays/main2"
 
   authenticated :user do
     root :to => 'home#index'
