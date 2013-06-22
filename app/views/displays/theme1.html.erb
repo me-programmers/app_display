@@ -69,32 +69,35 @@
             //timeline.add(slideOut(1), "slide1out")
           //if (slide_length>1) {
 
-          //  for (i = 1; i < slide_length+1; i++) 
-          //  {
-          //    timeline.set($("#namapasar" + i), {autoAlpha:1})
-          //    if (i==1) {
-                //timeline.add("in"+ i, 0)
-          //      timeline.add(slideIn(i), 0)
-          //    } else {
-          //      timeline.add("in"+ i, "+=1")  
-          //      timeline.add(slideIn(i), "in"+ i)
-          //    }                            
-          //    timeline.add("out"+ i, "+=1")
-          //    timeline.add(slideOut(i), "out"+ i)            
-          //    ;
-              //alert (i);
-          //  }
-            timeline              
-              .add(slideIn(1), 0)
-              .set($("#namapasar1"), {autoAlpha:1})
-              .add("out1x", "+=1")
-              .add(slideOut(1), "out1x")              
-              .add("in2x", "+=1")                            
-              .add(slideIn(2), "in2x")
-              .set($("#namapasar2"), {autoAlpha:1})
-              .add("out2x", "+=1")
-              .add(slideOut(2), "out2x")
+            for (i = 1; i < slide_length+1; i++) 
+            {
+              
+              if (i==1) {
+              //timeline.add("in"+ i, 0)
+                timeline.add(slideIn(i), 0)
+              } else {
+                timeline.add("in"+ i, "+=1")  
+                timeline.add(slideIn(i), "in"+ i)
+              }                            
+              timeline.set($("#namapasar" + i), {autoAlpha:1})
+              timeline.add("out"+ i, "+=1")
+              timeline.add(slideOut(i), "out"+ i)            
               ;
+              //alert (i);
+            }
+
+            // working in manual mode
+          //  timeline              
+          //    .add(slideIn(1), 0)
+          //    .set($("#namapasar1"), {autoAlpha:1})
+          //    .add("out1x", "+=1")
+          //    .add(slideOut(1), "out1x")              
+          //    .add("in2x", "+=1")                            
+          //    .add(slideIn(2), "in2x")
+          //    .set($("#namapasar2"), {autoAlpha:1})
+          //    .add("out2x", "+=1")
+          //    .add(slideOut(2), "out2x")
+          //    ;
           
           timeline.timeScale(1) // put a 4 in there, I dare you ;)
         }  

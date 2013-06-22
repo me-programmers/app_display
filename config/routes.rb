@@ -10,6 +10,7 @@ HargaPasar::Application.routes.draw do
   get "displays/lima"
   get "displays/main"
   get "displays/main2"
+  get "displays/theme1"
 
   authenticated :user do
     root :to => 'home#index'
