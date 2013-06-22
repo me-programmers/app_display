@@ -60,14 +60,12 @@ body { padding-top: 60px; }
 /* main */
 
 #boxWrapper {
-    width:100%;
-    height:1200px;
+    width:100%;    
     visibility:hidden;
 }
 
 #bungkus {
     width:100%;
-    height:1200px;
     overflow: hidden;
 }
 
@@ -149,4 +147,13 @@ body { padding-top: 60px; }
     -o-transform:translateZ(0.1px);
     -ms-transform:translateZ(0.1px);
     transform:translateZ(0.1px);
+}
+
+.bg {
+  background-size: 100% auto;
+}
+
+.bg2 {
+  background: url(/assets/bg-beras1.jpg) no-repeat;
+  background-size: 100% auto;
 }

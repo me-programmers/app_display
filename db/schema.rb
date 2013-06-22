@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615151317) do
+ActiveRecord::Schema.define(:version => 20130622080827) do
 
   create_table "komoditis", :force => true do |t|
     t.string   "nama_komoditi"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130615151317) do
     t.string   "lokasi"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "imgbg"
   end
 
   create_table "roles", :force => true do |t|

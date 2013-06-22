@@ -1,7 +1,7 @@
 <div id="boxWrapper">
-  <div id="bungkus">
+  <div id="bungkus" class="bg">
     <% @pasars.each do |pasar| %>
-      <div id="namapasar<%= pasar.id %>" class="nama-pasar"><%= pasar.nama %>
+      <div id="namapasar<%= pasar.id %>" data-url="<%= pasar.imgbg %>" class="nama-pasar"><%= pasar.nama %>
         <% pasar.komoditis.each do |komoditi| %>
           <div id="itemkomoditi" class="item-komoditi">
             <div class="item-nama"><%= komoditi.nama_komoditi %></div>
@@ -23,7 +23,9 @@
     //document.write($("#namapasar1 .item-komoditi ").length); //=> return 3
     TweenMax.ticker.fps(30);
 
-    var slide_length = $("#bungkus > .nama-pasar").length;
+    var slide_length = $("#bungkus > .nama-pasar").length,
+        docHeight = $(document).height()
+        ;
         //tl = new TimelineMax({repeat:1, repeatDelay:1, onComplete:myFunction, onCompleteParams:["satu", "done"]});
         $("#boxWrapper").css({visibility:"visible"});
         TweenLite.set($("#bungkus"), {perspective:'1200px'});
@@ -31,15 +33,25 @@
 
       function initCSS() 
       {
-        TweenLite.set($("#namapasar1"), {autoAlpha:1});
-        TweenLite.set($("#namapasar2"), {autoAlpha:1});
+        //TweenLite.set($("#namapasar1"), {autoAlpha:1});
+        //TweenLite.set($("#namapasar2"), {autoAlpha:1});
+        TweenLite.set($("#bungkus"), {height:docHeight});
       }
 
       function slideIn(a) 
         {
           var tl = new TimelineMax({repeat:0, repeatDelay:1}),
-          letters = $("#namapasar" + a + " div");
-          tl.add( TweenLite.from($("#namapasar" + a), 1, {opacity:0}))
+          letters = $("#namapasar" + a + " div"),
+          myImgBg = $("#namapasar" + a).data("url");
+          //alert ($("#namapasar" + a).data("url"));
+          //$(".bg1").css({'background':'url('+imgSource+')'});          
+          //$(".bg1").css({"background":"url(" + $(".bg" + a).data("url") + ") no-repeat"});
+          //$(".bg1").css({"background-size":"100% auto"});
+          //$('.bg1').css("background-image", "url(/assets/bg-beras1.jpg)"); 
+          tl 
+          .add(TweenMax.to($(".bg"),1,{opacity:1, backgroundImage:"url(" + myImgBg + ")"}))        
+          //.set($(".bg"), {backgroundImage:"url(" + myImgBg + ")"})     
+          .add(TweenLite.from($("#namapasar" + a), 1, {opacity:0}))
           .staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3);
             //.staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
           //alert(a);
@@ -58,6 +70,12 @@
           ;
             //.staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
           return tl;
+        }
+
+      function getImgBg() 
+        {
+          var mybg = $(".bg1").data("url");
+          return mybg; 
         }
 
       function createMasterTimeline() 
@@ -103,7 +121,8 @@
         }  
 
         //call the player
-        //initCSS();
+        initCSS();
+        //alert($(window).height());
         createMasterTimeline();
         
 
