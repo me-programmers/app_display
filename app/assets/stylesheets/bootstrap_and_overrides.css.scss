@@ -2,6 +2,8 @@
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
+
+
 .root {
   width: 100%;
   border:  thin solid;
@@ -150,10 +152,5 @@ body { padding-top: 60px; }
 }
 
 .bg {
-  background-size: 100% auto;
-}
-
-.bg2 {
-  background: url(/assets/bg-beras1.jpg) no-repeat;
   background-size: 100% auto;
 }

@@ -33,9 +33,13 @@
 
       function initCSS() 
       {
-        //TweenLite.set($("#namapasar1"), {autoAlpha:1});
-        //TweenLite.set($("#namapasar2"), {autoAlpha:1});
         TweenLite.set($("#bungkus"), {height:docHeight});
+        TweenMax.to($(".navbar-inner"), 0.5, {css:{height:0}, delay:0.5});
+        TweenMax.to($("body"), 0.5, {css:{padding:0}, delay:1});
+        TweenMax.to($(".container"), 0.5, {css:{width:"100%"}, delay:1.5});
+        TweenMax.to($(".content"), 0.5, {css:{padding:0}, delay:2});
+        TweenMax.to($(".span12"), 0.5, {css:{width:"100%", margin:0}, delay:2.5});
+        TweenMax.to($(".row"), 0.5, {css:{left:0, width:"100%", margin:0}, delay:3});
       }
 
       function slideIn(a) 

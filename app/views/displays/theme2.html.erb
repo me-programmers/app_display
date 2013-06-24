@@ -24,7 +24,8 @@
     TweenMax.ticker.fps(30);
 
     var slide_length = $("#bungkus > .nama-pasar").length,
-        docHeight = $(document).height()
+        docHeight = $(document).height(),
+        maxItem = 2
         ;
         //tl = new TimelineMax({repeat:1, repeatDelay:1, onComplete:myFunction, onCompleteParams:["satu", "done"]});
         $("#boxWrapper").css({visibility:"visible"});
@@ -33,8 +34,6 @@
 
       function initCSS() 
       {
-        //TweenLite.set($("#namapasar1"), {autoAlpha:1});
-        //TweenLite.set($("#namapasar2"), {autoAlpha:1});
         TweenLite.set($("#bungkus"), {height:docHeight});
       }
 
@@ -42,30 +41,31 @@
         {
           var tl = new TimelineMax({repeat:0, repeatDelay:1}),
           letters = $("#namapasar" + a + " div"),
+          itemLength = $("#namapasar" + a + " > .item-nama").length,
           myImgBg = $("#namapasar" + a).data("url");
-          //alert ($("#namapasar" + a).data("url"));
-          //$(".bg1").css({'background':'url('+imgSource+')'});          
-          //$(".bg1").css({"background":"url(" + $(".bg" + a).data("url") + ") no-repeat"});
-          //$(".bg1").css({"background-size":"100% auto"});
-          //$('.bg1').css("background-image", "url(/assets/bg-beras1.jpg)"); 
-          tl 
-          .add(TweenMax.to($(".bg"),1,{opacity:1, backgroundImage:"url(" + myImgBg + ")"}))        
-          //.set($(".bg"), {backgroundImage:"url(" + myImgBg + ")"})     
-          .add(TweenLite.from($("#namapasar" + a), 1, {opacity:0}))
-          .staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3);
-            //.staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
-          //alert(a);
+          //manual mode
+          //tl 
+          //.add(TweenMax.to($(".bg"),1,{opacity:1, backgroundImage:"url(" + myImgBg + ")"}))        
+          //.add(TweenLite.from($("#namapasar" + a), 1, {opacity:0}))
+          //.staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3);
+          
+          //auto mode
+          for (i = 1; i < maxItem + 1; i++) 
+            {              
+              tl.add(TweenMax.to($(".bg"),1,{opacity:1, backgroundImage:"url(" + myImgBg + ")"}))
+              tl.add(TweenLite.from($("#namapasar" + a), 1, {opacity:0}))
+              tl.staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3)       
+              ;
+              //alert (i);
+            }   
           return tl;
-
         }
 
         function slideOut(b) 
         {
           var tl = new TimelineMax({repeat:0, repeatDelay:1}),
           letters = $("#namapasar" + b+ " div");          
-          //tl.staggerTo(letters, 3.3, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3)
-            //.add(TweenLite.to($("#namapasar" + a), 0.5, {opacity:0}))
-            tl.staggerTo(letters, 1, {opacity:0}, 0.2)
+          tl.staggerTo(letters, 1, {opacity:0}, 0.2)
             .add(TweenLite.to($("#namapasar" + b), 0.5, {opacity:0}))
           ;
             //.staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
@@ -75,17 +75,9 @@
       function createMasterTimeline() 
         {
           var timeline = new TimelineMax({repeat:-1, repeatDelay:1});
-            //timeline.set($("#namapasar1"), {autoAlpha:1})
-            //timeline.add(slideIn(1), 0)
-            //timeline.add("slide1out", "+=1")
-            //timeline.add(slideOut(1), "slide1out")
-          //if (slide_length>1) {
-
-            for (i = 1; i < slide_length+1; i++) 
-            {
-              
+          for (i = 1; i < slide_length+1; i++) 
+            {              
               if (i==1) {
-              //timeline.add("in"+ i, 0)
                 timeline.add(slideIn(i), 0)
               } else {
                 timeline.add("in"+ i, "+=1")  
@@ -96,27 +88,13 @@
               timeline.add(slideOut(i), "out"+ i)            
               ;
               //alert (i);
-            }
-
-            // working in manual mode
-          //  timeline              
-          //    .add(slideIn(1), 0)
-          //    .set($("#namapasar1"), {autoAlpha:1})
-          //    .add("out1x", "+=1")
-          //    .add(slideOut(1), "out1x")              
-          //    .add("in2x", "+=1")                            
-          //    .add(slideIn(2), "in2x")
-          //    .set($("#namapasar2"), {autoAlpha:1})
-          //    .add("out2x", "+=1")
-          //    .add(slideOut(2), "out2x")
-          //    ;
-          
-          timeline.timeScale(1) // put a 4 in there, I dare you ;)
+            }          
+          timeline.timeScale(1) 
         }  
 
-        //call the player
+        //set the stage
         initCSS();
-        //alert($(window).height());
+        //call the player
         createMasterTimeline();
         
 

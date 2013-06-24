@@ -11,6 +11,8 @@ HargaPasar::Application.routes.draw do
   get "displays/main"
   get "displays/main2"
   get "displays/theme1"
+  get "displays/theme2"
+  get "displays/theme3"
 
   authenticated :user do
     root :to => 'home#index'
