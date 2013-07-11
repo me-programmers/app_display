@@ -12,6 +12,9 @@ class DisplaysController < ApplicationController
 		@pasars = Pasar.all		
 	end
 	def theme3
-		@pasars = Pasar.all		
+		@pasars = Pasar.all	
+	end
+	def theme4
+		@market = MarketComparison.all
 	end
 end

@@ -1,0 +1,92 @@
+<div id="boxWrapper">
+  <div id="bungkus" class="bg">
+    <div class="market-header">
+      <div class="market-header1">
+        HARGA KOMODITI TANAMAN PANGAN DAN HORTIKULTURA
+      </div>
+      <div class="market-header1">
+        PROVINSI SULAWESI SELATAN
+      </div>
+      <div class="market-header1">
+        POSISI 09 Juli 2013
+      </div>
+      <div class="market-item-judul">
+          <div class="market-item-nama-judul">KOMODITI</div>
+          <div class="market-item-grosir1-judul">PASAR TERONG</div>
+          <div class="market-item-grosir2-judul">PASAR UJUNG</div>
+          <div class="market-item-petani-judul">PETANI</div>
+          <div class="market-item-eceran-judul">ECERAN</div>
+      </div>
+      <% @market.each do |market| %>
+        <div id="market-item<%= market.id %>" class="market-item">
+          <div class="market-item-nama"><%= market.komoditi %></div>
+          <div class="market-item-grosir1"><%= "Rp. #{number_with_precision(market.grosir1, :delimiter => ".", :precision => 0)}" if market.grosir1 %></div>
+          <div class="market-item-grosir2"><%= "Rp. #{number_with_precision(market.grosir2, :delimiter => ".", :precision => 0)}" if market.grosir2 %></div>
+          <div class="market-item-petani"><%= "Rp. #{number_with_precision(market.petani, :delimiter => ".", :precision => 0)}" if market.petani %></div>
+          <div class="market-item-eceran"><%= "Rp. #{number_with_precision(market.eceran, :delimiter => ".", :precision => 0)}" if market.eceran %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  
+  $(document).ready(function(){	
+    TweenMax.ticker.fps(30);
+
+    var slide_length = $("#bungkus > .market-header").length,
+        docHeight = $(document).height()
+        ;        
+        $("#boxWrapper").css({visibility:"visible"});
+        TweenLite.set($("#bungkus"), {perspective:'1200px'});
+        
+      function initCSS() 
+      {
+        TweenLite.set($("#bungkus"), {height:docHeight});
+        TweenMax.to($(".navbar-inner"), 0.5, {css:{height:0}, delay:0.5});
+        TweenMax.to($("body"), 0.5, {css:{padding:0}, delay:1});
+        TweenMax.to($(".container"), 0.5, {css:{width:"100%"}, delay:1.5});
+        TweenMax.to($(".content"), 0.5, {css:{padding:0, margin:0}, delay:2});
+        TweenMax.to($(".span12"), 0.5, {css:{width:"100%", margin:0}, delay:2.5});
+        TweenMax.to($(".row"), 0.5, {css:{left:0, width:"100%", margin:0}, delay:3});
+        $('.bg').css("background-image", "url(/assets/bg-beras1.jpg)");
+      }
+
+      function slideIn() 
+        {
+          var tl = new TimelineMax({repeat:0, repeatDelay:1}),
+          letters = $(".market-header > div");
+          tl 
+          .add(TweenLite.from($("#market-header"), 1, {opacity:0}))
+          .staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3);
+          return tl;
+        }
+
+        function slideOut() 
+        {
+          var tl = new TimelineMax({repeat:0, repeatDelay:1}),
+          letters = $(".market-header > div");          
+          tl.staggerTo(letters, 1, {opacity:0}, 0.2)
+            .add(TweenLite.to($("#market-header"), 0.5, {opacity:0}))
+          ;
+          return tl;
+        }
+
+      function createMasterTimeline() 
+        {
+          var timeline = new TimelineMax({repeat:-1, repeatDelay:1});
+          timeline              
+            .add(slideIn(), 0)
+            .set($("#market-header"), {autoAlpha:1})
+            .add("out1x", "+=1")
+            .add(slideOut(), "out1x")              
+            ;
+          
+          timeline.timeScale(1) 
+        }  
+        initCSS();        
+        createMasterTimeline();        
+
+  });
+  </script>

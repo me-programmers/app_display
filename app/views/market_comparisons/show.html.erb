@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Komoditi:</b>
+  <%= @market_comparison.komoditi %>
+</p>
+
+<p>
+  <b>Grosir1:</b>
+  <%= @market_comparison.grosir1 %>
+</p>
+
+<p>
+  <b>Grosir2:</b>
+  <%= @market_comparison.grosir2 %>
+</p>
+
+<p>
+  <b>Petani:</b>
+  <%= @market_comparison.petani %>
+</p>
+
+<p>
+  <b>Eceran:</b>
+  <%= @market_comparison.eceran %>
+</p>
+
+
+<%= link_to 'Edit', edit_market_comparison_path(@market_comparison) %> |
+<%= link_to 'Back', market_comparisons_path %> |
+<%= link_to 'New', new_market_comparison_path %>

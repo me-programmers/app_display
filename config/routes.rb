@@ -1,4 +1,7 @@
 HargaPasar::Application.routes.draw do
+  resources :market_comparisons
+
+
   resources :pasars do
   	resources :komoditis
   end
@@ -13,6 +16,7 @@ HargaPasar::Application.routes.draw do
   get "displays/theme1"
   get "displays/theme2"
   get "displays/theme3"
+  get "displays/theme4"
 
   authenticated :user do
     root :to => 'home#index'

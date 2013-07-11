@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130622080827) do
+ActiveRecord::Schema.define(:version => 20130710023125) do
 
   create_table "komoditis", :force => true do |t|
     t.string   "nama_komoditi"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(:version => 20130622080827) do
   end
 
   add_index "komoditis", ["pasar_id"], :name => "index_komoditis_on_pasar_id"
+
+  create_table "market_comparisons", :force => true do |t|
+    t.string   "komoditi"
+    t.string   "marketbg"
+    t.text     "marketloc"
+    t.decimal  "grosir1"
+    t.decimal  "grosir2"
+    t.decimal  "grosir3"
+    t.decimal  "grosir4"
+    t.decimal  "grosir5"
+    t.decimal  "petani"
+    t.decimal  "eceran"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "pasars", :force => true do |t|
     t.string   "nama"
