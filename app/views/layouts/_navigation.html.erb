@@ -1,9 +1,9 @@
-<%= link_to "Hargapasar", root_path, :class => 'brand' %>
+<%= link_to "App-Display", root_path, :class => 'brand' %>
 <ul class="nav">
-  <li>
-    <%= link_to 'Input Harga', market_comparisons_path %>
-  </li>
-
+  <% if user_signed_in? %>
+    <li><%= link_to 'Edit Period', tb_periods_path %></li>
+    <li><%= link_to 'Edit Harga Komoditi', market_comparisons_path %></li>
+  <% end %>       
   <% if user_signed_in? %>
     <li>
     <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
@@ -24,7 +24,7 @@
     <% end %>
   <% else %>
     <li>
-    <%= link_to 'Sign up', new_user_registration_path %>
+    <!--<%= link_to 'Sign up', new_user_registration_path %>-->
     </li>
   <% end %>
 </ul>

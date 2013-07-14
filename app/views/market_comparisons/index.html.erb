@@ -1,4 +1,4 @@
-<h1>Listing market_comparisons</h1>
+<h1>Edit Harga Komoditi</h1>
 
 <table>
   <tr>
@@ -7,6 +7,7 @@
     <th>Grosir2</th>
     <th>Petani</th>
     <th>Eceran</th>
+    <th>Jenis</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,17 +16,18 @@
 <% @market_comparisons.each do |market_comparison| %>
   <tr>
     <td><%= market_comparison.komoditi %></td>
-    <td><%= market_comparison.grosir1 %></td>
-    <td><%= market_comparison.grosir2 %></td>
-    <td><%= market_comparison.petani %></td>
-    <td><%= market_comparison.eceran %></td>
-    <td><%= link_to 'Show', market_comparison %></td>
-    <td><%= link_to 'Edit', edit_market_comparison_path(market_comparison) %></td>
-    <td><%= link_to 'Destroy', market_comparison, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= number_with_precision(market_comparison.grosir1, :delimiter => ".", :precision => 0) %></td>
+    <td><%= number_with_precision(market_comparison.grosir2, :delimiter => ".", :precision => 0) %></td>
+    <td><%= number_with_precision(market_comparison.petani, :delimiter => ".", :precision => 0) %></td>
+    <td><%= number_with_precision(market_comparison.eceran, :delimiter => ".", :precision => 0) %></td>
+    <td><%= market_comparison.jenis %></td>
+    <!--<td><%= link_to 'Show', market_comparison %></td>-->
+    <td><%= link_to 'Edit', edit_market_comparison_path(market_comparison), :class => "btn"  %></td>
+    <!--<td><%= link_to 'Destroy', market_comparison, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Market comparison', new_market_comparison_path %>
+<!--<%= link_to 'New Market comparison', new_market_comparison_path %>-->

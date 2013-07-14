@@ -60,7 +60,7 @@ class MarketComparisonsController < ApplicationController
 
     respond_to do |format|
       if @market_comparison.update_attributes(params[:market_comparison])
-        format.html { redirect_to @market_comparison, notice: 'Market comparison was successfully updated.' }
+        format.html { redirect_to @market_comparison, notice: 'Harga Komoditi berhasil di update.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

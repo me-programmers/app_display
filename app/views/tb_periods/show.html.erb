@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Period:</b>
+  <%= @tb_period.period.strftime("%d-%m-%Y") %>
+</p>
+
+<%= link_to 'Edit', edit_tb_period_path(@tb_period), :class => "btn" %> |
+<%= link_to 'Back', tb_periods_path, :class => "btn" %>

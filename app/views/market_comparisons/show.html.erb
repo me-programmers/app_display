@@ -7,25 +7,30 @@
 
 <p>
   <b>Grosir1:</b>
-  <%= @market_comparison.grosir1 %>
+  <%= number_with_precision(@market_comparison.grosir1, :delimiter => ".", :precision => 0) %>
 </p>
 
 <p>
   <b>Grosir2:</b>
-  <%= @market_comparison.grosir2 %>
+  <%= number_with_precision(@market_comparison.grosir2, :delimiter => ".", :precision => 0) %>
 </p>
 
 <p>
   <b>Petani:</b>
-  <%= @market_comparison.petani %>
+  <%= number_with_precision(@market_comparison.petani, :delimiter => ".", :precision => 0) %>
 </p>
 
 <p>
   <b>Eceran:</b>
-  <%= @market_comparison.eceran %>
+  <%= number_with_precision(@market_comparison.eceran, :delimiter => ".", :precision => 0) %>
+</p>
+
+<p>
+  <b>Jenis:</b>
+  <%= @market_comparison.jenis %>
 </p>
 
 
-<%= link_to 'Edit', edit_market_comparison_path(@market_comparison) %> |
-<%= link_to 'Back', market_comparisons_path %> |
-<%= link_to 'New', new_market_comparison_path %>
+<%= link_to 'Edit', edit_market_comparison_path(@market_comparison), :class => "btn" %> |
+<%= link_to 'Back', market_comparisons_path, :class => "btn"  %> 
+

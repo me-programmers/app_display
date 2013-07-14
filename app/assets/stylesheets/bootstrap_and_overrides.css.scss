@@ -399,3 +399,177 @@ body { padding-top: 60px; }
     -ms-transform:translateZ(0.1px);
     transform:translateZ(0.1px);
 }
+
+/* theme 5    */
+
+.t5-slide1 {
+    /* visibility:hidden; */
+    position:absolute;    
+    top:0px;
+    left:0px;
+    width:100%;
+    height:40px;
+    background-color:transparent;
+    margin:0px;
+    display:inline-block;
+    font-size:20px;
+    line-height:40px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+.t5-slide2 {
+    /* visibility:hidden; */
+    position:absolute;    
+    top:0px;
+    left:0px;
+    width:100%;
+    height:40px;
+    background-color:transparent;
+    margin:0px;
+    display:inline-block;
+    font-size:20px;
+    line-height:40px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+.t5-slide3 {
+    /* visibility:hidden; */
+    position:absolute;    
+    top:0px;
+    left:0px;
+    width:100%;
+    height:40px;
+    background-color:transparent;
+    margin:0px;
+    display:inline-block;
+    font-size:20px;
+    line-height:40px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+.t5-slide-header > div {
+    width:100%;    
+    background-color:green;
+    margin:1px;
+    display:inline-block;
+    font-size:27px;
+    line-height:65px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+.t5-content {
+  position:absolute;
+  width:100%;
+}
+
+.t5-item-komoditi {
+    top:0px;
+    left:0px;
+    width:100%;
+    height:60px;
+    background-color:transparent;
+    margin:2px;
+    display:inline-block;
+    font-size:32px;
+    line-height:60px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+.t5-item-nama {
+    width:60%;
+    height:60px;
+    background-color:purple;
+    margin:0px 2px;
+    display:inline-block;
+    font-size:30px;
+    line-height:60px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+.t5-item-harga {
+    width:30%;
+    height:60px;
+    background-color:red;
+    margin:0px;
+    display:inline-block;
+    font-size:30px;
+    line-height:60px;
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    /* we apply a 3d transform just to improve rendering */
+    -webkit-transform:translateZ(0.1px);
+    -moz-transform:translateZ(0.1px);
+    -o-transform:translateZ(0.1px);
+    -ms-transform:translateZ(0.1px);
+    transform:translateZ(0.1px);
+}
+
+#lokasi-grosir1 {  
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0px 4px;
+  font-size:20px;
+  line-height:30px;
+  background-color: white;
+}
+
+#lokasi-grosir2 {  
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0px 4px;
+  font-size:20px;
+  line-height:30px;
+  background-color: white;
+}
+

@@ -7,9 +7,10 @@
     <%= f.input :grosir2 %>
     <%= f.input :petani %>
     <%= f.input :eceran %>
+    <%= f.input :jenis, collection: ["Sayuran", "Beras", "Holtikultura"] %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Edit Harga Komoditi" %>
   </div>
 <% end %>

@@ -1,0 +1,312 @@
+<div id="boxWrapper">
+  <div id="bungkus" class="bg">
+    <% @getperiod.each do |gperiod| %>
+      <div class="t5-slide1">  
+        <div id="t5-slide1-header1" class="t5-slide-header">    
+          <div class="t5-slide-header">
+              HARGA KOMODITI TANAMAN PANGAN DAN HORTIKULTURA PROVINSI SULAWESI SELATAN
+          </div>
+          <div class="t5-slide-header">
+            TINGKAT PETANI
+          </div>
+          <div class="t5-slide-header">
+            POSISI : <%= gperiod.period.strftime("%d-%m-%Y")  %>
+          </div>        
+        </div>  
+        <div id="t5-slide1-content-header1" class="t5-item-komoditi">
+          <div class="t5-item-nama">KOMODITI</div>
+          <div class="t5-item-harga">HARGA (Rp/KG)</div>
+        </div>
+        
+        <div id="t5-slide1-content1" class="t5-content">
+          <% @getpetanipg1.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.petani, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+        <div id="t5-slide1-content2" class="t5-content">
+          <% @getpetanipg2.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.petani, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>  
+        <div id="t5-slide1-content3" class="t5-content">
+          <% @getpetanipg3.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.petani, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+      </div>
+
+      <div class="t5-slide2">  
+        <div id="t5-slide2-header1" class="t5-slide-header">    
+          <div class="t5-slide-header">
+              HARGA KOMODITI TANAMAN PANGAN DAN HORTIKULTURA PROVINSI SULAWESI SELATAN
+          </div>
+          <div class="t5-slide-header">
+            TINGKAT ECERAN
+          </div>
+          <div class="t5-slide-header">
+            POSISI : <%= gperiod.period.strftime("%d-%m-%Y")  %>
+          </div>        
+        </div>  
+        <div id="t5-slide2-content-header1" class="t5-item-komoditi">
+          <div class="t5-item-nama">KOMODITI</div>
+          <div class="t5-item-harga">HARGA (Rp/KG)</div>
+        </div>
+        
+        <div id="t5-slide2-content1" class="t5-content">
+          <% @geteceranpg1.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.eceran, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+        <div id="t5-slide2-content2" class="t5-content">
+          <% @geteceranpg2.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.eceran, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>  
+        <div id="t5-slide2-content3" class="t5-content">
+          <% @geteceranpg3.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.eceran, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+        <div id="t5-slide2-content4" class="t5-content">
+          <% @geteceranpg4.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.eceran, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+        <div id="t5-slide2-content5" class="t5-content">
+          <% @geteceranpg5.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.eceran, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+      </div>
+
+      <div class="t5-slide3">  
+        <div id="t5-slide3-header1" class="t5-slide-header">    
+          <div class="t5-slide-header">
+              HARGA KOMODITI TANAMAN PANGAN DAN HORTIKULTURA PROVINSI SULAWESI SELATAN
+          </div>
+          <div class="t5-slide-header">
+            TINGKAT GROSIR
+          </div>
+          <div class="t5-slide-header">
+            POSISI : <%= gperiod.period.strftime("%d-%m-%Y")  %>
+          </div>        
+        </div>  
+        <div id="t5-slide3-content-header1" class="t5-item-komoditi">
+          <div class="t5-item-nama">KOMODITI</div>
+          <div class="t5-item-harga">HARGA (Rp/KG)</div>
+        </div>
+        
+        <div id="t5-slide3-content1" class="t5-content">
+          <% @getgrosir1pg1.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.grosir1, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+        <div id="t5-slide3-content2" class="t5-content">
+          <% @getgrosir1pg2.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.grosir1, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>  
+        <div id="t5-slide3-content3" class="t5-content">
+          <% @getgrosir1pg3.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.grosir1, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>
+        <div id="t5-slide3-content4" class="t5-content">
+          <% @getgrosir2pg4.each do |item| %>
+            <div class="t5-item-komoditi">
+              <div class="t5-item-nama"><%= item.komoditi %></div>
+              <div class="t5-item-harga"><%= number_with_precision(item.grosir2, :delimiter => ".", :precision => 0) %></div>
+            </div>    
+          <% end %>
+        </div>        
+      </div>
+
+      <div id="lokasi-grosir1">LOKASI : PASAR TERONG</div>
+      <div id="lokasi-grosir2">LOKASI : PASAR UJUNG</div>
+
+    <% end %>
+  </div>
+  </div>
+</div>
+
+<script>
+  
+  $(document).ready(function(){
+	 TweenMax.ticker.fps(30);
+
+    var slide_length = $("#bungkus > .nama-pasar").length,
+        docHeight = $(document).height()
+        ;
+        $("#boxWrapper").css({visibility:"visible"});
+        TweenLite.set($("#bungkus"), {perspective:'1200px'});
+        
+      function initCSS() 
+      {
+        TweenLite.set($("#bungkus"), {height:docHeight});
+        TweenMax.to($(".navbar-inner"), 0.5, {css:{height:0}, delay:0.5});
+        TweenMax.to($("body"), 0.5, {css:{padding:0}, delay:1});
+        TweenMax.to($(".container"), 0.5, {css:{width:"100%"}, delay:1.5});
+        TweenMax.to($(".content"), 0.5, {css:{padding:0, margin:0}, delay:2});
+        TweenMax.to($(".span12"), 0.5, {css:{width:"100%", margin:0}, delay:2.5});
+        TweenMax.to($(".row"), 0.5, {css:{left:0, width:"100%", margin:0}, delay:3});
+        TweenLite.set($("#lokasi-grosir1"), {autoAlpha: 0});
+        TweenLite.set($("#lokasi-grosir2"), {autoAlpha: 0});        
+      }      
+
+      function slideIn_Header(a, b) 
+      {
+        var tl = new TimelineMax({repeat:0, repeatDelay:1}),
+        letters = $("#t5-slide" + a + "-header" + b + " div")
+        ;          
+        tl 
+        .add(TweenLite.from($("#t5-slide" + a + "-header" + b), 1, {opacity:0}))
+        .staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3)
+        .add(TweenLite.from($("#t5-slide" + a + "-content-header" + b), 1, {opacity:0}))
+        ;
+        return tl;
+      }
+
+      function slideIn_Content(a, b) 
+      {
+        var tl = new TimelineMax({repeat:0, repeatDelay:1}),
+        letters = $("#t5-slide" + a + "-content" + b + " div")
+        ;          
+        tl 
+        .add(TweenLite.from($("#t5-slide" + a + "-content" + b), 1, {opacity:0}))
+        .staggerFrom(letters, 2, {opacity:0, rotationX:-90, transformOrigin:"50% 0%", ease:Elastic.easeOut}, 0.3);
+        return tl;
+      }
+
+      function slideOut_Content(a, b) 
+      {
+        var tl = new TimelineMax({repeat:0, repeatDelay:1}),
+        letters = $("#t5-slide" + a + "-content" + b + " div");          
+        tl.staggerTo(letters, 1, {opacity:0}, 0.2)
+        ;
+        return tl;
+      }   
+
+      function slideOut_Header(a, b) 
+      {
+        var tl = new TimelineMax({repeat:0, repeatDelay:1}),
+        letters = $("#t5-slide" + a + "-header" + b + " div");          
+        tl.staggerTo(letters, 1, {opacity:0}, 0.2)
+          .add(TweenLite.to($("#t5-slide" + a + "-content-header" + b), 0.5, {opacity:0}))
+        ;
+        return tl;
+      }
+      function createMasterTimeline() 
+        {
+          var timeline = new TimelineMax({repeat:-1, repeatDelay:1});
+          timeline
+            .set($(".bg"),{backgroundImage:"url(/assets/bg-sayur.jpg)"})
+            .add(slideIn_Header(1, 1), 0)
+            .add("in1pg1x", "+=0.5")
+            .add(slideIn_Content(1, 1), "in1pg1x")
+            .add("out1pg1x", "+=1")
+            .add(slideOut_Content(1, 1), "out1pg1x")      
+            .add("in1pg2x", "+=1")        
+            .add(slideIn_Content(1, 2), "in1pg2x")
+            .add("out1pg2x", "+=1")
+            .add(slideOut_Content(1, 2), "out1pg2x")      
+            .add("in1pg3x", "+=1") 
+            .add(slideIn_Content(1, 3), "in1pg3x")
+            .add("out1pg3x", "+=1")
+            .add(slideOut_Content(1, 3), "out1pg3x")      
+            .add("outs1x", "+=1")
+            .add(slideOut_Header(1, 1), "outs1x")
+            .add("ins2x", "+=1")
+            .set($(".bg"),{backgroundImage:"url(/assets/bg-sayur.jpg)"})
+            .add(slideIn_Header(2, 1), "ins2x")
+            .add("in2pg1x", "+=1")
+            .add(slideIn_Content(2, 1), "in2pg1x")
+            .add("out2pg1x", "+=1")
+            .add(slideOut_Content(2, 1), "out2pg1x")      
+            .add("in2pg2x", "+=1")        
+            .add(slideIn_Content(2, 2), "in2pg2x")
+            .add("out2pg2x", "+=1")
+            .add(slideOut_Content(2, 2), "out2pg2x")      
+            .add("in2pg3x", "+=1") 
+            .add(slideIn_Content(2, 3), "in2pg3x")
+            .add("out2pg3x", "+=1")
+            .add(slideOut_Content(2, 3), "out2pg3x")
+            .set($(".bg"),{backgroundImage:"url(/assets/bg-beras.jpg)"})   
+            .add("in2pg4x", "+=1")
+            .add(slideIn_Content(2, 4), "in2pg4x")      
+            .add("out2pg4x", "+=1")
+            .add(slideOut_Content(2, 4), "out2pg4x")
+            .set($(".bg"),{backgroundImage:"url(/assets/bg-jagung.jpg)"})
+            .add("in2pg5x", "+=1")
+            .add(slideIn_Content(2, 5), "in2pg5x")      
+            .add("out2pg5x", "+=1")
+            .add(slideOut_Content(2, 5), "out2pg5x")                    
+            .add("outs2x", "+=1")
+            .add(slideOut_Header(2, 1), "outs2x")
+            .set($(".bg"),{backgroundImage:"url(/assets/bg-sayur.jpg)"})
+            .add("ins3x", "+=1")
+            .add(slideIn_Header(3, 1), "ins3x")
+            .add("in3pg1x", "+=1")
+            .set($("#lokasi-grosir1"), {autoAlpha: 1})
+            //.add(TweenLite.to($("#lokasi-grosir1"), 0.5, {left:0}))
+            .add(slideIn_Content(3, 1), "in3pg1x")
+            .add("out3pg1x", "+=1")
+            .add(slideOut_Content(3, 1), "out3pg1x")      
+            .add("in3pg2x", "+=1")        
+            .add(slideIn_Content(3, 2), "in3pg2x")
+            .add("out3pg2x", "+=1")
+            .add(slideOut_Content(3, 2), "out3pg2x")      
+            .add("in3pg3x", "+=1") 
+            .add(slideIn_Content(3, 3), "in3pg3x")
+            .add("out3pg3x", "+=1")
+            .add(slideOut_Content(3, 3), "out3pg3x")
+            .set($("#lokasi-grosir1"), {autoAlpha: 0})
+            //.add(TweenLite.from($("#lokasi-grosir1"), 0.5, {left:0}))
+            .set($(".bg"),{backgroundImage:"url(/assets/bg-jagung.jpg)"})
+            .set($("#lokasi-grosir2"), {autoAlpha: 1})
+            .add("in3pg4x", "+=1")
+            .add(slideIn_Content(3, 4), "in3pg4x")      
+            .add("out3pg4x", "+=1")
+            .add(slideOut_Content(3, 4), "out3pg4x")      
+            .add("outs3x", "+=1")
+            .add(slideOut_Header(3, 1), "outs3x")
+            .set($("#lokasi-grosir2"), {autoAlpha: 0})
+          ;         
+          timeline.timeScale(1)
+        }
+        initCSS();
+        createMasterTimeline();
+  });
+  </script>
