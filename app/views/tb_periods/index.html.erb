@@ -1,15 +1,13 @@
 <h1>Edit Period</h1>
 
-<table>
+<table id="customers">
   <tr>
     <th>Period</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <% @tb_periods.each do |tb_period| %>
-  <tr>
+  <tr class="alt">
     <td><%= tb_period.period.strftime("%d-%m-%Y") %></td>
     <!--<td><%= link_to 'Show', tb_period %></td>-->
     <td><%= link_to 'Edit', edit_tb_period_path(tb_period), :class => "btn" %></td>

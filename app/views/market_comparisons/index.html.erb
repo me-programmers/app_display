@@ -1,21 +1,19 @@
 <h1>Edit Harga Komoditi</h1>
 
-<table>
+<table id="customers">
   <tr>
     <th>No</th>
     <th>Komoditi</th>
-    <th>Grosir1</th>
-    <th>Grosir2</th>
+    <th>Grosir1 (Pasar Terong)</th>
+    <th>Grosir2 (Pasar Ujung)</th>
     <th>Petani</th>
     <th>Eceran</th>
     <th>Jenis</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @market_comparisons.each do |market_comparison| %>
-  <tr>
+  <tr class="alt">
     <td><%= market_comparison.id %></td>
     <td><%= market_comparison.komoditi %></td>
     <td><%= number_with_precision(market_comparison.grosir1, :delimiter => ".", :precision => 0) %></td>
