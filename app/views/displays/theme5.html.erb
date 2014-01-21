@@ -165,7 +165,7 @@
 <script>
   
   $(document).ready(function(){
-	 TweenMax.ticker.fps(30);
+	 TweenLite.ticker.fps(30);
 
     var slide_length = $("#bungkus > .nama-pasar").length,
         docHeight = $(document).height()
@@ -176,12 +176,12 @@
       function initCSS() 
       {
         TweenLite.set($("#bungkus"), {height:docHeight});
-        TweenMax.to($(".navbar-inner"), 0.5, {css:{height:0}, delay:0.5});
-        TweenMax.to($("body"), 0.5, {css:{padding:0}, delay:1});
-        TweenMax.to($(".container"), 0.5, {css:{width:"100%"}, delay:1.5});
-        TweenMax.to($(".content"), 0.5, {css:{padding:0, margin:0}, delay:2});
-        TweenMax.to($(".span12"), 0.5, {css:{width:"100%", margin:0}, delay:2.5});
-        TweenMax.to($(".row"), 0.5, {css:{left:0, width:"100%", margin:0}, delay:3});
+        TweenLite.to($(".navbar-inner"), 0.5, {css:{height:0}, delay:0.5});
+        TweenLite.to($("body"), 0.5, {css:{padding:0}, delay:1});
+        TweenLite.to($(".container"), 0.5, {css:{width:"100%"}, delay:1.5});
+        TweenLite.to($(".content"), 0.5, {css:{padding:0, margin:0}, delay:2});
+        TweenLite.to($(".span12"), 0.5, {css:{width:"100%", margin:0}, delay:2.5});
+        TweenLite.to($(".row"), 0.5, {css:{left:0, width:"100%", margin:0}, delay:3});
         TweenLite.set($("#lokasi-grosir1"), {autoAlpha: 0});
         TweenLite.set($("#lokasi-grosir2"), {autoAlpha: 0});        
       }      
@@ -230,7 +230,7 @@
       }
       function createMasterTimeline() 
         {
-          var timeline = new TimelineMax({repeat:-1, repeatDelay:1});
+          var timeline = new TimelineMax({repeat:2, repeatDelay:1});
           timeline
             .set($(".bg"),{backgroundImage:"url(/assets/bg-sayur.jpg)"})
             .add(slideIn_Header(1, 1), 0)
@@ -312,5 +312,6 @@
         }
         initCSS();
         createMasterTimeline();
+        timeline.killAll();
   });
   </script>
