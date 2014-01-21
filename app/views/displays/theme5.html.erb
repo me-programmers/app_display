@@ -230,7 +230,7 @@
       }
       function createMasterTimeline() 
         {
-          var timeline = new TimelineMax({repeat:2, repeatDelay:1});
+          var timeline = new TimelineMax({repeat:-1, repeatDelay:1});
           timeline
             .set($(".bg"),{backgroundImage:"url(/assets/bg-sayur.jpg)"})
             .add(slideIn_Header(1, 1), 0)
